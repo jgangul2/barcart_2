@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cocktail_favorites_users
   resources :cocktail_recipes_standards
   resources :spirits_details
   resources :cocktail_details
