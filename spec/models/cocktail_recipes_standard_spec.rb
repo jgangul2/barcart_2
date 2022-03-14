@@ -4,6 +4,8 @@ RSpec.describe CocktailRecipesStandard, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:cocktail) }
+
     end
 
     describe "InDirect Associations" do
