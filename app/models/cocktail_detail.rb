@@ -1,4 +1,6 @@
 class CocktailDetail < ApplicationRecord
+  mount_base64_uploader :image_url, ImageUrlUploader
+
   # Direct associations
 
   has_many   :user_customized_cocktails,

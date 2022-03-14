@@ -68,7 +68,7 @@
 
     <%= f.label :image_url %>
     <!-- Input for image_url start -->
-    <%= f.text_field :image_url, class: image_url_class, placeholder: "Enter image url" %>
+    <%= f.file_field :image_url, class: "form-control" %>
     <!-- Input for image_url end -->
     <% if image_url_was_invalid %>
       <% cocktail_detail.errors.full_messages_for(:image_url).each do |message| %>
