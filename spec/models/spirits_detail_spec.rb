@@ -4,6 +4,8 @@ RSpec.describe SpiritsDetail, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:cocktail_recipes_standards) }
+
     end
 
     describe "InDirect Associations" do
