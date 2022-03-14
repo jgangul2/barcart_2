@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   scope path: ApplicationResource.endpoint_namespace, defaults: { format: :jsonapi } do
     scope module: 'api/v1', as: 'api' do
+      resources :cocktail_favorites_users
+
       resources :cocktail_recipes_standards
 
       resources :spirits_details
