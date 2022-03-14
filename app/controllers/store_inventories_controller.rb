@@ -42,8 +42,14 @@ class StoreInventoriesController < ApplicationController
   # DELETE /store_inventories/1
   def destroy
     @store_inventory.destroy
-    redirect_to store_inventories_url, notice: 'Store inventory was successfully destroyed.'
+    message = "StoreInventory was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to store_inventories_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

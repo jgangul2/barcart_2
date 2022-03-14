@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Cocktail Favorites Users
+
+    <a data-toggle="collapse" href="#cocktail_detail_cocktail_favorites_users_new_form">
+      Add cocktail favorites user
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @cocktail_detail.cocktail_favorites_users.each do |cocktail_favorites_user| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to cocktail_favorites_user, cocktail_favorites_user %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to cocktail_favorites_user, method: :delete, data: { confirm: "Do you really want to delete this cocktail_favorites_user" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="cocktail_detail_cocktail_favorites_users_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

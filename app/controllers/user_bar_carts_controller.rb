@@ -42,8 +42,14 @@ class UserBarCartsController < ApplicationController
   # DELETE /user_bar_carts/1
   def destroy
     @user_bar_cart.destroy
-    redirect_to user_bar_carts_url, notice: 'User bar cart was successfully destroyed.'
+    message = "UserBarCart was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to user_bar_carts_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

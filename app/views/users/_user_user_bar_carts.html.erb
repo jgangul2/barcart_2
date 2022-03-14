@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    User Bar Carts
+
+    <a data-toggle="collapse" href="#user_user_bar_carts_new_form">
+      Add user bar cart
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.user_bar_carts.each do |user_bar_cart| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to user_bar_cart, user_bar_cart %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_user_bar_carts_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

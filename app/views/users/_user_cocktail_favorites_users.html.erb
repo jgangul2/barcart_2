@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Cocktail Favorites Users
+
+    <a data-toggle="collapse" href="#user_cocktail_favorites_users_new_form">
+      Add cocktail favorites user
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.cocktail_favorites_users.each do |cocktail_favorites_user| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to cocktail_favorites_user, cocktail_favorites_user %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_cocktail_favorites_users_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

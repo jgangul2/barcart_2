@@ -42,8 +42,14 @@ class UserCustomizedCocktailsController < ApplicationController
   # DELETE /user_customized_cocktails/1
   def destroy
     @user_customized_cocktail.destroy
-    redirect_to user_customized_cocktails_url, notice: 'User customized cocktail was successfully destroyed.'
+    message = "UserCustomizedCocktail was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to user_customized_cocktails_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

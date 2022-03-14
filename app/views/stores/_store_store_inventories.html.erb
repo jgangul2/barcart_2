@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Store Inventories
+
+    <a data-toggle="collapse" href="#store_store_inventories_new_form">
+      Add store inventory
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @store.store_inventories.each do |store_inventory| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to store_inventory, store_inventory %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to store_inventory, method: :delete, data: { confirm: "Do you really want to delete this store_inventory" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="store_store_inventories_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
