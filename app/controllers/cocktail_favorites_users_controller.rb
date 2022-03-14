@@ -1,4 +1,6 @@
 class CocktailFavoritesUsersController < ApplicationController
+  before_action :current_user_must_be_cocktail_favorites_user_user, only: [:edit, :update, :destroy] 
+
   before_action :set_cocktail_favorites_user, only: [:show, :edit, :update, :destroy]
 
   # GET /cocktail_favorites_users
@@ -57,6 +59,14 @@ class CocktailFavoritesUsersController < ApplicationController
 
 
   private
+
+  def current_user_must_be_cocktail_favorites_user_user
+    set_cocktail_favorites_user
+    unless current_user == @cocktail_favorites_user.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_cocktail_favorites_user
       @cocktail_favorites_user = CocktailFavoritesUser.find(params[:id])

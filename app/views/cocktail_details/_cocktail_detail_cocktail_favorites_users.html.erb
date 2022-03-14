@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to cocktail_favorites_user, method: :delete, data: { confirm: "Do you really want to delete this cocktail_favorites_user" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == cocktail_favorites_user.user %>
+          <%= link_to cocktail_favorites_user, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 

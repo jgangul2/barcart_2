@@ -24,16 +24,20 @@
 
       <!-- Edit link cocktail_favorites_user start -->
       <div class="col">
-        <%= link_to edit_cocktail_favorites_user_url(cocktail_favorites_user), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @cocktail_favorites_user.user %>
+          <%= link_to edit_cocktail_favorites_user_url(cocktail_favorites_user), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link cocktail_favorites_user end -->
 
       <!-- Delete link cocktail_favorites_user start -->
       <div class="col">
-        <%= link_to cocktail_favorites_user, method: :delete, data: { confirm: "Do you really want to delete this cocktail_favorites_user?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @cocktail_favorites_user.user %>
+          <%= link_to cocktail_favorites_user, method: :delete, data: { confirm: "Do you really want to delete this cocktail_favorites_user?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link cocktail_favorites_user end -->
