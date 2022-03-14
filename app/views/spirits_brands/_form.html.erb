@@ -1,0 +1,83 @@
+<% was_validated = spirits_brand.errors.any? %>
+
+<%= form_with(model: spirits_brand, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for spirit_id start -->
+  <div class="form-group">
+    <% spirit_class = "form-control" %>
+    <% spirit_was_invalid = spirits_brand.errors.include?(:spirit) %>
+
+    <% if was_validated %>
+      <% if spirit_was_invalid %>
+        <% spirit_class << " is-invalid" %>
+      <% else %>
+        <% spirit_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :spirit_id %>
+    <!-- Input for spirit_id start -->
+    <%= f.number_field :spirit_id, class: spirit_class, placeholder: "Enter spirit" %>
+    <!-- Input for spirit_id end -->
+    <% if spirit_was_invalid %>
+      <% spirits_brand.errors.full_messages_for(:spirit).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for spirit_id end -->
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = spirits_brand.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% spirits_brand.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <% description_class = "form-control" %>
+    <% description_was_invalid = spirits_brand.errors.include?(:description) %>
+
+    <% if was_validated %>
+      <% if description_was_invalid %>
+        <% description_class << " is-invalid" %>
+      <% else %>
+        <% description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_field :description, class: description_class, placeholder: "Enter description" %>
+    <!-- Input for description end -->
+    <% if description_was_invalid %>
+      <% spirits_brand.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for description end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

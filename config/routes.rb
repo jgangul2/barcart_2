@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :spirits_brands
   resources :store_inventories
   resources :stores
   resources :cocktail_favorites_users
