@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Cocktail</dt>
       <!-- Display cocktail_id start -->
-      <dd><%= cocktail_recipes_standard.cocktail_id %></dd>
+      <dd>
+        <% if @cocktail_recipes_standard.cocktail.present? %>
+          <%= link_to cocktail_recipes_standard.cocktail, cocktail_recipes_standard.cocktail %>
+        <% end %>
+      </dd>
       <!-- Display cocktail_id end -->
 
       <dt>Ingredient</dt>
       <!-- Display ingredient_id start -->
-      <dd><%= cocktail_recipes_standard.ingredient_id %></dd>
+      <dd>
+        <% if @cocktail_recipes_standard.ingredient.present? %>
+          <%= link_to cocktail_recipes_standard.ingredient, cocktail_recipes_standard.ingredient %>
+        <% end %>
+      </dd>
       <!-- Display ingredient_id end -->
 
       <dt>Quantity</dt>

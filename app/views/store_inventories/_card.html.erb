@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Store</dt>
       <!-- Display store_id start -->
-      <dd><%= store_inventory.store_id %></dd>
+      <dd>
+        <% if @store_inventory.store.present? %>
+          <%= link_to store_inventory.store, store_inventory.store %>
+        <% end %>
+      </dd>
       <!-- Display store_id end -->
 
       <dt>Price</dt>
@@ -17,7 +21,11 @@
 
       <dt>Ingredient</dt>
       <!-- Display ingredient_id start -->
-      <dd><%= store_inventory.ingredient_id %></dd>
+      <dd>
+        <% if @store_inventory.ingredient.present? %>
+          <%= link_to store_inventory.ingredient, store_inventory.ingredient %>
+        <% end %>
+      </dd>
       <!-- Display ingredient_id end -->
 
     </dl>

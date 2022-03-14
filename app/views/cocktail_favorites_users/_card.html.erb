@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= cocktail_favorites_user.user_id %></dd>
+      <dd>
+        <% if @cocktail_favorites_user.user.present? %>
+          <%= link_to cocktail_favorites_user.user, cocktail_favorites_user.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Cocktail</dt>
       <!-- Display cocktail_id start -->
-      <dd><%= cocktail_favorites_user.cocktail_id %></dd>
+      <dd>
+        <% if @cocktail_favorites_user.cocktail.present? %>
+          <%= link_to cocktail_favorites_user.cocktail, cocktail_favorites_user.cocktail %>
+        <% end %>
+      </dd>
       <!-- Display cocktail_id end -->
 
     </dl>

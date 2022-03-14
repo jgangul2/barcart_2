@@ -7,17 +7,29 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= user_customized_cocktail.user_id %></dd>
+      <dd>
+        <% if @user_customized_cocktail.user.present? %>
+          <%= link_to user_customized_cocktail.user, user_customized_cocktail.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Cocktail</dt>
       <!-- Display cocktail_id start -->
-      <dd><%= user_customized_cocktail.cocktail_id %></dd>
+      <dd>
+        <% if @user_customized_cocktail.cocktail.present? %>
+          <%= link_to user_customized_cocktail.cocktail, user_customized_cocktail.cocktail %>
+        <% end %>
+      </dd>
       <!-- Display cocktail_id end -->
 
       <dt>Ingredient</dt>
       <!-- Display ingredient_id start -->
-      <dd><%= user_customized_cocktail.ingredient_id %></dd>
+      <dd>
+        <% if @user_customized_cocktail.ingredient.present? %>
+          <%= link_to user_customized_cocktail.ingredient, user_customized_cocktail.ingredient %>
+        <% end %>
+      </dd>
       <!-- Display ingredient_id end -->
 
     </dl>

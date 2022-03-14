@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Spirit</dt>
       <!-- Display spirit_id start -->
-      <dd><%= spirits_brand.spirit_id %></dd>
+      <dd>
+        <% if @spirits_brand.spirit.present? %>
+          <%= link_to spirits_brand.spirit, spirits_brand.spirit %>
+        <% end %>
+      </dd>
       <!-- Display spirit_id end -->
 
       <dt>Name</dt>
