@@ -8,6 +8,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :cocktail_favorites_users
+
   # Indirect associations
 
 end
