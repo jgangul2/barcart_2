@@ -16,7 +16,7 @@
 
     <%= f.label :spirit_id %>
     <!-- Input for spirit_id start -->
-    <%= f.number_field :spirit_id, class: spirit_class, placeholder: "Enter spirit" %>
+    <%= f.collection_select :spirit_id, SpiritsDetail.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for spirit_id end -->
     <% if spirit_was_invalid %>
       <% spirits_brand.errors.full_messages_for(:spirit).each do |message| %>
