@@ -6,6 +6,9 @@ class SpiritsDetailResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :spirits_brands,
+             foreign_key: :spirit_id
+
   has_many   :cocktail_recipes_standards,
              foreign_key: :ingredient_id
 

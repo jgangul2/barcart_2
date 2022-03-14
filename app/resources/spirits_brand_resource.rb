@@ -8,6 +8,9 @@ class SpiritsBrandResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :spirit,
+             resource: SpiritsDetailResource
+
   # Indirect associations
 
 end
