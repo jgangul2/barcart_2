@@ -15,5 +15,4 @@ class CocktailRecipesStandardResource < ApplicationResource
              resource: CocktailDetailResource
 
   # Indirect associations
-
 end

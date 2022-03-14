@@ -2,7 +2,7 @@ class StoreInventory < ApplicationRecord
   # Direct associations
 
   belongs_to :ingredient,
-             :class_name => "SpiritsBrand"
+             class_name: "SpiritsBrand"
 
   belongs_to :store
 
@@ -15,5 +15,4 @@ class StoreInventory < ApplicationRecord
   def to_s
     store.to_s
   end
-
 end

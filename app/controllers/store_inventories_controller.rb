@@ -1,15 +1,15 @@
 class StoreInventoriesController < ApplicationController
-  before_action :set_store_inventory, only: [:show, :edit, :update, :destroy]
+  before_action :set_store_inventory, only: %i[show edit update destroy]
 
   # GET /store_inventories
   def index
     @q = StoreInventory.ransack(params[:q])
-    @store_inventories = @q.result(:distinct => true).includes(:store, :ingredient).page(params[:page]).per(10)
+    @store_inventories = @q.result(distinct: true).includes(:store,
+                                                            :ingredient).page(params[:page]).per(10)
   end
 
   # GET /store_inventories/1
-  def show
-  end
+  def show; end
 
   # GET /store_inventories/new
   def new
@@ -17,17 +17,16 @@ class StoreInventoriesController < ApplicationController
   end
 
   # GET /store_inventories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /store_inventories
   def create
     @store_inventory = StoreInventory.new(store_inventory_params)
 
     if @store_inventory.save
-      message = 'StoreInventory was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "StoreInventory was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @store_inventory, notice: message
       end
@@ -39,7 +38,8 @@ class StoreInventoriesController < ApplicationController
   # PATCH/PUT /store_inventories/1
   def update
     if @store_inventory.update(store_inventory_params)
-      redirect_to @store_inventory, notice: 'Store inventory was successfully updated.'
+      redirect_to @store_inventory,
+                  notice: "Store inventory was successfully updated."
     else
       render :edit
     end
@@ -49,22 +49,22 @@ class StoreInventoriesController < ApplicationController
   def destroy
     @store_inventory.destroy
     message = "StoreInventory was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to store_inventories_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_store_inventory
-      @store_inventory = StoreInventory.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def store_inventory_params
-      params.require(:store_inventory).permit(:store_id, :price, :ingredient_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_store_inventory
+    @store_inventory = StoreInventory.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def store_inventory_params
+    params.require(:store_inventory).permit(:store_id, :price, :ingredient_id)
+  end
 end

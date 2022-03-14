@@ -13,7 +13,7 @@ class Api::V1::CocktailDetailsController < Api::V1::GraphitiController
     cocktail_detail = CocktailDetailResource.build(params)
 
     if cocktail_detail.save
-      render jsonapi: cocktail_detail, status: 201
+      render jsonapi: cocktail_detail, status: :created
     else
       render jsonapi_errors: cocktail_detail
     end
@@ -33,7 +33,7 @@ class Api::V1::CocktailDetailsController < Api::V1::GraphitiController
     cocktail_detail = CocktailDetailResource.find(params)
 
     if cocktail_detail.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: cocktail_detail
     end

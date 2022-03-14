@@ -13,5 +13,4 @@ class SpiritsDetailResource < ApplicationResource
              foreign_key: :ingredient_id
 
   # Indirect associations
-
 end

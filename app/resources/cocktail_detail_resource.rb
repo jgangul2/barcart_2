@@ -18,5 +18,4 @@ class CocktailDetailResource < ApplicationResource
              foreign_key: :cocktail_id
 
   # Indirect associations
-
 end

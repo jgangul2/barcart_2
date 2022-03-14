@@ -13,7 +13,7 @@ class Api::V1::CocktailRecipesStandardsController < Api::V1::GraphitiController
     cocktail_recipes_standard = CocktailRecipesStandardResource.build(params)
 
     if cocktail_recipes_standard.save
-      render jsonapi: cocktail_recipes_standard, status: 201
+      render jsonapi: cocktail_recipes_standard, status: :created
     else
       render jsonapi_errors: cocktail_recipes_standard
     end
@@ -33,7 +33,7 @@ class Api::V1::CocktailRecipesStandardsController < Api::V1::GraphitiController
     cocktail_recipes_standard = CocktailRecipesStandardResource.find(params)
 
     if cocktail_recipes_standard.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: cocktail_recipes_standard
     end

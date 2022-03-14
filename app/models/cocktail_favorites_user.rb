@@ -2,7 +2,7 @@ class CocktailFavoritesUser < ApplicationRecord
   # Direct associations
 
   belongs_to :cocktail,
-             :class_name => "CocktailDetail"
+             class_name: "CocktailDetail"
 
   belongs_to :user
 
@@ -15,5 +15,4 @@ class CocktailFavoritesUser < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

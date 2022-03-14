@@ -13,7 +13,7 @@ class Api::V1::UserBarCartsController < Api::V1::GraphitiController
     user_bar_cart = UserBarCartResource.build(params)
 
     if user_bar_cart.save
-      render jsonapi: user_bar_cart, status: 201
+      render jsonapi: user_bar_cart, status: :created
     else
       render jsonapi_errors: user_bar_cart
     end
@@ -33,7 +33,7 @@ class Api::V1::UserBarCartsController < Api::V1::GraphitiController
     user_bar_cart = UserBarCartResource.find(params)
 
     if user_bar_cart.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: user_bar_cart
     end

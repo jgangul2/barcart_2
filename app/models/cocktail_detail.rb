@@ -4,16 +4,16 @@ class CocktailDetail < ApplicationRecord
   # Direct associations
 
   has_many   :user_customized_cocktails,
-             :foreign_key => "cocktail_id",
-             :dependent => :destroy
+             foreign_key: "cocktail_id",
+             dependent: :destroy
 
   has_many   :cocktail_favorites_users,
-             :foreign_key => "cocktail_id",
-             :dependent => :destroy
+             foreign_key: "cocktail_id",
+             dependent: :destroy
 
   has_many   :cocktail_recipes_standards,
-             :foreign_key => "cocktail_id",
-             :dependent => :destroy
+             foreign_key: "cocktail_id",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -24,5 +24,4 @@ class CocktailDetail < ApplicationRecord
   def to_s
     name
   end
-
 end

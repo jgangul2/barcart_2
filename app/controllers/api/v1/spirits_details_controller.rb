@@ -13,7 +13,7 @@ class Api::V1::SpiritsDetailsController < Api::V1::GraphitiController
     spirits_detail = SpiritsDetailResource.build(params)
 
     if spirits_detail.save
-      render jsonapi: spirits_detail, status: 201
+      render jsonapi: spirits_detail, status: :created
     else
       render jsonapi_errors: spirits_detail
     end
@@ -33,7 +33,7 @@ class Api::V1::SpiritsDetailsController < Api::V1::GraphitiController
     spirits_detail = SpiritsDetailResource.find(params)
 
     if spirits_detail.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: spirits_detail
     end

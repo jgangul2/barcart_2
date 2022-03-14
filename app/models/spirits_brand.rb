@@ -2,19 +2,19 @@ class SpiritsBrand < ApplicationRecord
   # Direct associations
 
   has_many   :user_customized_cocktails,
-             :foreign_key => "ingredient_id",
-             :dependent => :destroy
+             foreign_key: "ingredient_id",
+             dependent: :destroy
 
   has_many   :user_bar_carts,
-             :foreign_key => "spirit_brand_id",
-             :dependent => :destroy
+             foreign_key: "spirit_brand_id",
+             dependent: :destroy
 
   has_many   :store_inventories,
-             :foreign_key => "ingredient_id",
-             :dependent => :destroy
+             foreign_key: "ingredient_id",
+             dependent: :destroy
 
   belongs_to :spirit,
-             :class_name => "SpiritsDetail"
+             class_name: "SpiritsDetail"
 
   # Indirect associations
 
@@ -25,5 +25,4 @@ class SpiritsBrand < ApplicationRecord
   def to_s
     spirit.to_s
   end
-
 end

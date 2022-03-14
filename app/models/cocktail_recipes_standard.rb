@@ -2,10 +2,10 @@ class CocktailRecipesStandard < ApplicationRecord
   # Direct associations
 
   belongs_to :ingredient,
-             :class_name => "SpiritsDetail"
+             class_name: "SpiritsDetail"
 
   belongs_to :cocktail,
-             :class_name => "CocktailDetail"
+             class_name: "CocktailDetail"
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class CocktailRecipesStandard < ApplicationRecord
   def to_s
     cocktail.to_s
   end
-
 end

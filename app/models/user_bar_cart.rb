@@ -2,7 +2,7 @@ class UserBarCart < ApplicationRecord
   # Direct associations
 
   belongs_to :spirit_brand,
-             :class_name => "SpiritsBrand"
+             class_name: "SpiritsBrand"
 
   belongs_to :user
 
@@ -15,5 +15,4 @@ class UserBarCart < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

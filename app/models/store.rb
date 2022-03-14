@@ -2,7 +2,7 @@ class Store < ApplicationRecord
   # Direct associations
 
   has_many   :store_inventories,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Store < ApplicationRecord
   def to_s
     store_name
   end
-
 end

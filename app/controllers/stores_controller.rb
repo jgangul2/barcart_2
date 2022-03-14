@@ -1,10 +1,10 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :set_store, only: %i[show edit update destroy]
 
   # GET /stores
   def index
     @q = Store.ransack(params[:q])
-    @stores = @q.result(:distinct => true).includes(:store_inventories).page(params[:page]).per(10)
+    @stores = @q.result(distinct: true).includes(:store_inventories).page(params[:page]).per(10)
   end
 
   # GET /stores/1
@@ -18,15 +18,14 @@ class StoresController < ApplicationController
   end
 
   # GET /stores/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /stores
   def create
     @store = Store.new(store_params)
 
     if @store.save
-      redirect_to @store, notice: 'Store was successfully created.'
+      redirect_to @store, notice: "Store was successfully created."
     else
       render :new
     end
@@ -35,7 +34,7 @@ class StoresController < ApplicationController
   # PATCH/PUT /stores/1
   def update
     if @store.update(store_params)
-      redirect_to @store, notice: 'Store was successfully updated.'
+      redirect_to @store, notice: "Store was successfully updated."
     else
       render :edit
     end
@@ -44,17 +43,18 @@ class StoresController < ApplicationController
   # DELETE /stores/1
   def destroy
     @store.destroy
-    redirect_to stores_url, notice: 'Store was successfully destroyed.'
+    redirect_to stores_url, notice: "Store was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_store
-      @store = Store.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def store_params
-      params.require(:store).permit(:store_name, :location)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_store
+    @store = Store.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def store_params
+    params.require(:store).permit(:store_name, :location)
+  end
 end

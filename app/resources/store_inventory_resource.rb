@@ -14,5 +14,4 @@ class StoreInventoryResource < ApplicationResource
   belongs_to :store
 
   # Indirect associations
-
 end

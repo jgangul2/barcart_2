@@ -13,7 +13,7 @@ class Api::V1::UserCustomizedCocktailsController < Api::V1::GraphitiController
     user_customized_cocktail = UserCustomizedCocktailResource.build(params)
 
     if user_customized_cocktail.save
-      render jsonapi: user_customized_cocktail, status: 201
+      render jsonapi: user_customized_cocktail, status: :created
     else
       render jsonapi_errors: user_customized_cocktail
     end
@@ -33,7 +33,7 @@ class Api::V1::UserCustomizedCocktailsController < Api::V1::GraphitiController
     user_customized_cocktail = UserCustomizedCocktailResource.find(params)
 
     if user_customized_cocktail.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: user_customized_cocktail
     end

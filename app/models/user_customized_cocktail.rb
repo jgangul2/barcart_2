@@ -2,10 +2,10 @@ class UserCustomizedCocktail < ApplicationRecord
   # Direct associations
 
   belongs_to :ingredient,
-             :class_name => "SpiritsBrand"
+             class_name: "SpiritsBrand"
 
   belongs_to :cocktail,
-             :class_name => "CocktailDetail"
+             class_name: "CocktailDetail"
 
   belongs_to :user
 
@@ -18,5 +18,4 @@ class UserCustomizedCocktail < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

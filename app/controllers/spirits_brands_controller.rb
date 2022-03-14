@@ -1,10 +1,11 @@
 class SpiritsBrandsController < ApplicationController
-  before_action :set_spirits_brand, only: [:show, :edit, :update, :destroy]
+  before_action :set_spirits_brand, only: %i[show edit update destroy]
 
   # GET /spirits_brands
   def index
     @q = SpiritsBrand.ransack(params[:q])
-    @spirits_brands = @q.result(:distinct => true).includes(:spirit, :store_inventories, :user_bar_carts, :user_customized_cocktails).page(params[:page]).per(10)
+    @spirits_brands = @q.result(distinct: true).includes(:spirit,
+                                                         :store_inventories, :user_bar_carts, :user_customized_cocktails).page(params[:page]).per(10)
   end
 
   # GET /spirits_brands/1
@@ -20,17 +21,16 @@ class SpiritsBrandsController < ApplicationController
   end
 
   # GET /spirits_brands/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /spirits_brands
   def create
     @spirits_brand = SpiritsBrand.new(spirits_brand_params)
 
     if @spirits_brand.save
-      message = 'SpiritsBrand was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "SpiritsBrand was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @spirits_brand, notice: message
       end
@@ -42,7 +42,8 @@ class SpiritsBrandsController < ApplicationController
   # PATCH/PUT /spirits_brands/1
   def update
     if @spirits_brand.update(spirits_brand_params)
-      redirect_to @spirits_brand, notice: 'Spirits brand was successfully updated.'
+      redirect_to @spirits_brand,
+                  notice: "Spirits brand was successfully updated."
     else
       render :edit
     end
@@ -52,22 +53,22 @@ class SpiritsBrandsController < ApplicationController
   def destroy
     @spirits_brand.destroy
     message = "SpiritsBrand was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to spirits_brands_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_spirits_brand
-      @spirits_brand = SpiritsBrand.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def spirits_brand_params
-      params.require(:spirits_brand).permit(:spirit_id, :name, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_spirits_brand
+    @spirits_brand = SpiritsBrand.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def spirits_brand_params
+    params.require(:spirits_brand).permit(:spirit_id, :name, :description)
+  end
 end

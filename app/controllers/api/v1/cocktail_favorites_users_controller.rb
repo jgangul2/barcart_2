@@ -13,7 +13,7 @@ class Api::V1::CocktailFavoritesUsersController < Api::V1::GraphitiController
     cocktail_favorites_user = CocktailFavoritesUserResource.build(params)
 
     if cocktail_favorites_user.save
-      render jsonapi: cocktail_favorites_user, status: 201
+      render jsonapi: cocktail_favorites_user, status: :created
     else
       render jsonapi_errors: cocktail_favorites_user
     end
@@ -33,7 +33,7 @@ class Api::V1::CocktailFavoritesUsersController < Api::V1::GraphitiController
     cocktail_favorites_user = CocktailFavoritesUserResource.find(params)
 
     if cocktail_favorites_user.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: cocktail_favorites_user
     end

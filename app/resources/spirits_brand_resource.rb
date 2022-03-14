@@ -21,5 +21,4 @@ class SpiritsBrandResource < ApplicationResource
              resource: SpiritsDetailResource
 
   # Indirect associations
-
 end

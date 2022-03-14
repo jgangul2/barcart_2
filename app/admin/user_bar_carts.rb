@@ -1,6 +1,5 @@
 ActiveAdmin.register UserBarCart do
-
- permit_params :user_id, :spirit_brand_id, :quantity
+  permit_params :user_id, :spirit_brand_id, :quantity
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register UserBarCart do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end
