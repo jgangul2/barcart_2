@@ -1,6 +1,10 @@
 class CocktailDetail < ApplicationRecord
   # Direct associations
 
+  has_many   :user_customized_cocktails,
+             :foreign_key => "cocktail_id",
+             :dependent => :destroy
+
   has_many   :cocktail_favorites_users,
              :foreign_key => "cocktail_id",
              :dependent => :destroy

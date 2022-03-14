@@ -1,6 +1,9 @@
 class UserCustomizedCocktail < ApplicationRecord
   # Direct associations
 
+  belongs_to :cocktail,
+             :class_name => "CocktailDetail"
+
   belongs_to :user
 
   # Indirect associations
