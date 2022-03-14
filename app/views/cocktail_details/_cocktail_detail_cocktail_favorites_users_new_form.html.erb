@@ -1,18 +1,8 @@
-<!-- Form cocktail_favorites_user start -->
 <%= form_with(model: @cocktail_favorites_user, local: true) do |f| %>
-<!-- Form cocktail_favorites_user end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for cocktail_id start -->
-  <!-- Input for cocktail_id start -->
   <%= f.hidden_field :cocktail_id, value: @cocktail_detail.id %>
-  <!-- Input for cocktail_id end -->
-  <!-- Label and input for cocktail_id end -->
 
   <%= f.submit "Create cocktail favorites user", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

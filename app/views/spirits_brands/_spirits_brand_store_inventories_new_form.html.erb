@@ -1,32 +1,18 @@
-<!-- Form store_inventory start -->
 <%= form_with(model: @store_inventory, local: true) do |f| %>
-<!-- Form store_inventory end -->
 
-  <!-- Label and input for store_id start -->
   <div class="form-group">
     <%= f.label :store_id %>
 
-    <!-- Input for store_id start -->
     <%= f.collection_select :store_id, Store.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for store_id end -->
   </div>
-  <!-- Label and input for store_id end -->
 
-  <!-- Label and input for price start -->
   <div class="form-group">
     <%= f.label :price %>
 
-    <!-- Input for price start -->
     <%= f.text_field :price, class: "form-control" %>
-    <!-- Input for price end -->
   </div>
-  <!-- Label and input for price end -->
 
-  <!-- Label and input for ingredient_id start -->
-  <!-- Input for ingredient_id start -->
   <%= f.hidden_field :ingredient_id, value: @spirits_brand.id %>
-  <!-- Input for ingredient_id end -->
-  <!-- Label and input for ingredient_id end -->
 
   <%= f.submit "Create store inventory", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

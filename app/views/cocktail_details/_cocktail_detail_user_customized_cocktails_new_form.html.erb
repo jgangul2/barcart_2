@@ -1,32 +1,18 @@
-<!-- Form user_customized_cocktail start -->
 <%= form_with(model: @user_customized_cocktail, local: true) do |f| %>
-<!-- Form user_customized_cocktail end -->
 
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <%= f.label :user_id %>
 
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
   </div>
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for cocktail_id start -->
-  <!-- Input for cocktail_id start -->
   <%= f.hidden_field :cocktail_id, value: @cocktail_detail.id %>
-  <!-- Input for cocktail_id end -->
-  <!-- Label and input for cocktail_id end -->
 
-  <!-- Label and input for ingredient_id start -->
   <div class="form-group">
     <%= f.label :ingredient_id %>
 
-    <!-- Input for ingredient_id start -->
     <%= f.collection_select :ingredient_id, SpiritsBrand.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for ingredient_id end -->
   </div>
-  <!-- Label and input for ingredient_id end -->
 
   <%= f.submit "Create user customized cocktail", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

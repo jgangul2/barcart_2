@@ -6,21 +6,15 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= cocktail_detail.name %></dd>
-      <!-- Display name end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= cocktail_detail.description %></dd>
-      <!-- Display description end -->
 
       <dt>Image url</dt>
-      <!-- Display image_url start -->
       <dd>
         <%= cl_image_tag @cocktail_detail.image_url, class: "img-fluid" %>
       </dd>
-      <!-- Display image_url end -->
 
     </dl>
 
@@ -29,21 +23,17 @@
         <%= link_to_show_or_back cocktail_detail, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link cocktail_detail start -->
       <div class="col">
         <%= link_to edit_cocktail_detail_url(cocktail_detail), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link cocktail_detail end -->
 
-      <!-- Delete link cocktail_detail start -->
       <div class="col">
         <%= link_to cocktail_detail, method: :delete, data: { confirm: "Do you really want to delete this cocktail_detail?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link cocktail_detail end -->
     </div>
   </div>
 

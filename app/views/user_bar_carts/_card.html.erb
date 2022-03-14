@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @user_bar_cart.user.present? %>
           <%= link_to user_bar_cart.user, user_bar_cart.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Spirit brand</dt>
-      <!-- Display spirit_brand_id start -->
       <dd>
         <% if @user_bar_cart.spirit_brand.present? %>
           <%= link_to user_bar_cart.spirit_brand, user_bar_cart.spirit_brand %>
         <% end %>
       </dd>
-      <!-- Display spirit_brand_id end -->
 
       <dt>Quantity</dt>
-      <!-- Display quantity start -->
       <dd><%= user_bar_cart.quantity %></dd>
-      <!-- Display quantity end -->
 
     </dl>
 
@@ -35,21 +29,17 @@
         <%= link_to_show_or_back user_bar_cart, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link user_bar_cart start -->
       <div class="col">
         <%= link_to edit_user_bar_cart_url(user_bar_cart), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link user_bar_cart end -->
 
-      <!-- Delete link user_bar_cart start -->
       <div class="col">
         <%= link_to user_bar_cart, method: :delete, data: { confirm: "Do you really want to delete this user_bar_cart?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link user_bar_cart end -->
     </div>
   </div>
 

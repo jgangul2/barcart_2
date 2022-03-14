@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @spirits_detail.cocktail_recipes_standards.each do |cocktail_recipes_standard| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to cocktail_recipes_standard, cocktail_recipes_standard %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to cocktail_recipes_standard, method: :delete, data: { confirm: "Do you really want to delete this cocktail_recipes_standard" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="spirits_detail_cocktail_recipes_standards_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "spirits_details/spirits_detail_cocktail_recipes_standards_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

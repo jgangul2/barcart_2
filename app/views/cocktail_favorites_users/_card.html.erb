@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @cocktail_favorites_user.user.present? %>
           <%= link_to cocktail_favorites_user.user, cocktail_favorites_user.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Cocktail</dt>
-      <!-- Display cocktail_id start -->
       <dd>
         <% if @cocktail_favorites_user.cocktail.present? %>
           <%= link_to cocktail_favorites_user.cocktail, cocktail_favorites_user.cocktail %>
         <% end %>
       </dd>
-      <!-- Display cocktail_id end -->
 
     </dl>
 
@@ -30,7 +26,6 @@
         <%= link_to_show_or_back cocktail_favorites_user, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link cocktail_favorites_user start -->
       <div class="col">
         <% if current_user == @cocktail_favorites_user.user %>
           <%= link_to edit_cocktail_favorites_user_url(cocktail_favorites_user), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -38,9 +33,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link cocktail_favorites_user end -->
 
-      <!-- Delete link cocktail_favorites_user start -->
       <div class="col">
         <% if current_user == @cocktail_favorites_user.user %>
           <%= link_to cocktail_favorites_user, method: :delete, data: { confirm: "Do you really want to delete this cocktail_favorites_user?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -48,7 +41,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link cocktail_favorites_user end -->
     </div>
   </div>
 

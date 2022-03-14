@@ -1,32 +1,18 @@
-<!-- Form spirits_brand start -->
 <%= form_with(model: @spirits_brand, local: true) do |f| %>
-<!-- Form spirits_brand end -->
 
-  <!-- Label and input for spirit_id start -->
-  <!-- Input for spirit_id start -->
   <%= f.hidden_field :spirit_id, value: @spirits_detail.id %>
-  <!-- Input for spirit_id end -->
-  <!-- Label and input for spirit_id end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <%= f.label :name %>
 
-    <!-- Input for name start -->
     <%= f.text_field :name, class: "form-control" %>
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
-  <!-- Label and input for description start -->
   <div class="form-group">
     <%= f.label :description %>
 
-    <!-- Input for description start -->
     <%= f.text_field :description, class: "form-control" %>
-    <!-- Input for description end -->
   </div>
-  <!-- Label and input for description end -->
 
   <%= f.submit "Create spirits brand", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

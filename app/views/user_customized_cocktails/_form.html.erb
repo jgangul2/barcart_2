@@ -1,7 +1,6 @@
 <% was_validated = user_customized_cocktail.errors.any? %>
 
 <%= form_with(model: user_customized_cocktail, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = user_customized_cocktail.errors.include?(:user) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
     <% if user_was_invalid %>
       <% user_customized_cocktail.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for cocktail_id start -->
   <div class="form-group">
     <% cocktail_class = "form-control" %>
     <% cocktail_was_invalid = user_customized_cocktail.errors.include?(:cocktail) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :cocktail_id %>
-    <!-- Input for cocktail_id start -->
     <%= f.collection_select :cocktail_id, CocktailDetail.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for cocktail_id end -->
     <% if cocktail_was_invalid %>
       <% user_customized_cocktail.errors.full_messages_for(:cocktail).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for cocktail_id end -->
-  <!-- Label and input for ingredient_id start -->
   <div class="form-group">
     <% ingredient_class = "form-control" %>
     <% ingredient_was_invalid = user_customized_cocktail.errors.include?(:ingredient) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :ingredient_id %>
-    <!-- Input for ingredient_id start -->
     <%= f.collection_select :ingredient_id, SpiritsBrand.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for ingredient_id end -->
     <% if ingredient_was_invalid %>
       <% user_customized_cocktail.errors.full_messages_for(:ingredient).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for ingredient_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
