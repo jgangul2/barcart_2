@@ -3,7 +3,8 @@ class CocktailRecipesStandardsController < ApplicationController
 
   # GET /cocktail_recipes_standards
   def index
-    @cocktail_recipes_standards = CocktailRecipesStandard.page(params[:page]).per(10)
+    @q = CocktailRecipesStandard.ransack(params[:q])
+    @cocktail_recipes_standards = @q.result(:distinct => true).includes(:cocktail, :ingredient).page(params[:page]).per(10)
   end
 
   # GET /cocktail_recipes_standards/1

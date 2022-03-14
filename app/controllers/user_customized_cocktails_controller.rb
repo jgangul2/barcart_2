@@ -3,7 +3,8 @@ class UserCustomizedCocktailsController < ApplicationController
 
   # GET /user_customized_cocktails
   def index
-    @user_customized_cocktails = UserCustomizedCocktail.page(params[:page]).per(10)
+    @q = UserCustomizedCocktail.ransack(params[:q])
+    @user_customized_cocktails = @q.result(:distinct => true).includes(:user, :cocktail, :ingredient).page(params[:page]).per(10)
   end
 
   # GET /user_customized_cocktails/1

@@ -3,7 +3,8 @@ class StoreInventoriesController < ApplicationController
 
   # GET /store_inventories
   def index
-    @store_inventories = StoreInventory.page(params[:page]).per(10)
+    @q = StoreInventory.ransack(params[:q])
+    @store_inventories = @q.result(:distinct => true).includes(:store, :ingredient).page(params[:page]).per(10)
   end
 
   # GET /store_inventories/1

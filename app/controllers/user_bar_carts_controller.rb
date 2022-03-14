@@ -3,7 +3,8 @@ class UserBarCartsController < ApplicationController
 
   # GET /user_bar_carts
   def index
-    @user_bar_carts = UserBarCart.page(params[:page]).per(10)
+    @q = UserBarCart.ransack(params[:q])
+    @user_bar_carts = @q.result(:distinct => true).includes(:user, :spirit_brand).page(params[:page]).per(10)
   end
 
   # GET /user_bar_carts/1

@@ -5,7 +5,8 @@ class CocktailFavoritesUsersController < ApplicationController
 
   # GET /cocktail_favorites_users
   def index
-    @cocktail_favorites_users = CocktailFavoritesUser.page(params[:page]).per(10)
+    @q = CocktailFavoritesUser.ransack(params[:q])
+    @cocktail_favorites_users = @q.result(:distinct => true).includes(:user, :cocktail).page(params[:page]).per(10)
   end
 
   # GET /cocktail_favorites_users/1

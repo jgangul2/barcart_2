@@ -3,7 +3,8 @@ class SpiritsBrandsController < ApplicationController
 
   # GET /spirits_brands
   def index
-    @spirits_brands = SpiritsBrand.page(params[:page]).per(10)
+    @q = SpiritsBrand.ransack(params[:q])
+    @spirits_brands = @q.result(:distinct => true).includes(:spirit, :store_inventories, :user_bar_carts, :user_customized_cocktails).page(params[:page]).per(10)
   end
 
   # GET /spirits_brands/1
