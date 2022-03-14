@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :spirits_details
   resources :cocktail_details
   devise_for :users
   resources :users
