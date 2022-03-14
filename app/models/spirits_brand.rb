@@ -1,6 +1,10 @@
 class SpiritsBrand < ApplicationRecord
   # Direct associations
 
+  has_many   :store_inventories,
+             :foreign_key => "ingredient_id",
+             :dependent => :destroy
+
   belongs_to :spirit,
              :class_name => "SpiritsDetail"
 
