@@ -42,7 +42,7 @@
 
     <%= f.label :cocktail_id %>
     <!-- Input for cocktail_id start -->
-    <%= f.number_field :cocktail_id, class: cocktail_class, placeholder: "Enter cocktail" %>
+    <%= f.collection_select :cocktail_id, CocktailDetail.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for cocktail_id end -->
     <% if cocktail_was_invalid %>
       <% user_customized_cocktail.errors.full_messages_for(:cocktail).each do |message| %>
