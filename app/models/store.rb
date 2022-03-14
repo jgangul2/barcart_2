@@ -1,6 +1,9 @@
 class Store < ApplicationRecord
   # Direct associations
 
+  has_many   :store_inventories,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
