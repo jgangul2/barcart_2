@@ -8,6 +8,9 @@ class UserBarCartResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :spirit_brand,
+             resource: SpiritsBrandResource
+
   belongs_to :user
 
   # Indirect associations
