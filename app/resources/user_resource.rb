@@ -8,6 +8,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :user_bar_carts
+
   has_many   :cocktail_favorites_users
 
   # Indirect associations
