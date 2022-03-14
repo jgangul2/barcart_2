@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :cocktail_favorites_users,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
