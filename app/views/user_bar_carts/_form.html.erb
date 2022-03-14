@@ -1,0 +1,83 @@
+<% was_validated = user_bar_cart.errors.any? %>
+
+<%= form_with(model: user_bar_cart, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = user_bar_cart.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% user_bar_cart.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for spirit_brand_id start -->
+  <div class="form-group">
+    <% spirit_brand_class = "form-control" %>
+    <% spirit_brand_was_invalid = user_bar_cart.errors.include?(:spirit_brand) %>
+
+    <% if was_validated %>
+      <% if spirit_brand_was_invalid %>
+        <% spirit_brand_class << " is-invalid" %>
+      <% else %>
+        <% spirit_brand_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :spirit_brand_id %>
+    <!-- Input for spirit_brand_id start -->
+    <%= f.number_field :spirit_brand_id, class: spirit_brand_class, placeholder: "Enter spirit brand" %>
+    <!-- Input for spirit_brand_id end -->
+    <% if spirit_brand_was_invalid %>
+      <% user_bar_cart.errors.full_messages_for(:spirit_brand).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for spirit_brand_id end -->
+  <!-- Label and input for quantity start -->
+  <div class="form-group">
+    <% quantity_class = "form-control" %>
+    <% quantity_was_invalid = user_bar_cart.errors.include?(:quantity) %>
+
+    <% if was_validated %>
+      <% if quantity_was_invalid %>
+        <% quantity_class << " is-invalid" %>
+      <% else %>
+        <% quantity_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :quantity %>
+    <!-- Input for quantity start -->
+    <%= f.number_field :quantity, class: quantity_class, placeholder: "Enter quantity" %>
+    <!-- Input for quantity end -->
+    <% if quantity_was_invalid %>
+      <% user_bar_cart.errors.full_messages_for(:quantity).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for quantity end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

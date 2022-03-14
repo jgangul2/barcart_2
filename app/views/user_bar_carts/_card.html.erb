@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    User Bar Cart #<%= user_bar_cart.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= user_bar_cart.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Spirit brand</dt>
+      <!-- Display spirit_brand_id start -->
+      <dd><%= user_bar_cart.spirit_brand_id %></dd>
+      <!-- Display spirit_brand_id end -->
+
+      <dt>Quantity</dt>
+      <!-- Display quantity start -->
+      <dd><%= user_bar_cart.quantity %></dd>
+      <!-- Display quantity end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back user_bar_cart, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link user_bar_cart start -->
+      <div class="col">
+        <%= link_to edit_user_bar_cart_url(user_bar_cart), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link user_bar_cart end -->
+
+      <!-- Delete link user_bar_cart start -->
+      <div class="col">
+        <%= link_to user_bar_cart, method: :delete, data: { confirm: "Do you really want to delete this user_bar_cart?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link user_bar_cart end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(user_bar_cart.updated_at) %> ago
+  </div>
+</div>
