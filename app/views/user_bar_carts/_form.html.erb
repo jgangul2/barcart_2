@@ -42,7 +42,7 @@
 
     <%= f.label :spirit_brand_id %>
     <!-- Input for spirit_brand_id start -->
-    <%= f.number_field :spirit_brand_id, class: spirit_brand_class, placeholder: "Enter spirit brand" %>
+    <%= f.collection_select :spirit_brand_id, SpiritsBrand.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for spirit_brand_id end -->
     <% if spirit_brand_was_invalid %>
       <% user_bar_cart.errors.full_messages_for(:spirit_brand).each do |message| %>

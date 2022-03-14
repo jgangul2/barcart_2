@@ -13,7 +13,7 @@
     <%= f.label :spirit_brand_id %>
 
     <!-- Input for spirit_brand_id start -->
-    <%= f.text_field :spirit_brand_id, class: "form-control" %>
+    <%= f.collection_select :spirit_brand_id, SpiritsBrand.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for spirit_brand_id end -->
   </div>
   <!-- Label and input for spirit_brand_id end -->
