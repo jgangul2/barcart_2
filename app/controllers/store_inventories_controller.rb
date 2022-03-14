@@ -1,25 +1,20 @@
 class StoreInventoriesController < ApplicationController
   before_action :set_store_inventory, only: %i[show edit update destroy]
 
-  # GET /store_inventories
   def index
     @q = StoreInventory.ransack(params[:q])
     @store_inventories = @q.result(distinct: true).includes(:store,
                                                             :ingredient).page(params[:page]).per(10)
   end
 
-  # GET /store_inventories/1
   def show; end
 
-  # GET /store_inventories/new
   def new
     @store_inventory = StoreInventory.new
   end
 
-  # GET /store_inventories/1/edit
   def edit; end
 
-  # POST /store_inventories
   def create
     @store_inventory = StoreInventory.new(store_inventory_params)
 
@@ -35,7 +30,6 @@ class StoreInventoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /store_inventories/1
   def update
     if @store_inventory.update(store_inventory_params)
       redirect_to @store_inventory,
@@ -45,7 +39,6 @@ class StoreInventoriesController < ApplicationController
     end
   end
 
-  # DELETE /store_inventories/1
   def destroy
     @store_inventory.destroy
     message = "StoreInventory was successfully deleted."
@@ -58,12 +51,10 @@ class StoreInventoriesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_store_inventory
     @store_inventory = StoreInventory.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def store_inventory_params
     params.require(:store_inventory).permit(:store_id, :price, :ingredient_id)
   end

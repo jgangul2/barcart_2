@@ -2,25 +2,20 @@ class UserCustomizedCocktailsController < ApplicationController
   before_action :set_user_customized_cocktail,
                 only: %i[show edit update destroy]
 
-  # GET /user_customized_cocktails
   def index
     @q = UserCustomizedCocktail.ransack(params[:q])
     @user_customized_cocktails = @q.result(distinct: true).includes(:user,
                                                                     :cocktail, :ingredient).page(params[:page]).per(10)
   end
 
-  # GET /user_customized_cocktails/1
   def show; end
 
-  # GET /user_customized_cocktails/new
   def new
     @user_customized_cocktail = UserCustomizedCocktail.new
   end
 
-  # GET /user_customized_cocktails/1/edit
   def edit; end
 
-  # POST /user_customized_cocktails
   def create
     @user_customized_cocktail = UserCustomizedCocktail.new(user_customized_cocktail_params)
 
@@ -36,7 +31,6 @@ class UserCustomizedCocktailsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_customized_cocktails/1
   def update
     if @user_customized_cocktail.update(user_customized_cocktail_params)
       redirect_to @user_customized_cocktail,
@@ -46,7 +40,6 @@ class UserCustomizedCocktailsController < ApplicationController
     end
   end
 
-  # DELETE /user_customized_cocktails/1
   def destroy
     @user_customized_cocktail.destroy
     message = "UserCustomizedCocktail was successfully deleted."
@@ -59,12 +52,10 @@ class UserCustomizedCocktailsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_user_customized_cocktail
     @user_customized_cocktail = UserCustomizedCocktail.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def user_customized_cocktail_params
     params.require(:user_customized_cocktail).permit(:user_id, :cocktail_id,
                                                      :ingredient_id)

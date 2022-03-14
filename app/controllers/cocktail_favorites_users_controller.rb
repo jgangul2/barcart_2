@@ -5,25 +5,20 @@ class CocktailFavoritesUsersController < ApplicationController
   before_action :set_cocktail_favorites_user,
                 only: %i[show edit update destroy]
 
-  # GET /cocktail_favorites_users
   def index
     @q = CocktailFavoritesUser.ransack(params[:q])
     @cocktail_favorites_users = @q.result(distinct: true).includes(:user,
                                                                    :cocktail).page(params[:page]).per(10)
   end
 
-  # GET /cocktail_favorites_users/1
   def show; end
 
-  # GET /cocktail_favorites_users/new
   def new
     @cocktail_favorites_user = CocktailFavoritesUser.new
   end
 
-  # GET /cocktail_favorites_users/1/edit
   def edit; end
 
-  # POST /cocktail_favorites_users
   def create
     @cocktail_favorites_user = CocktailFavoritesUser.new(cocktail_favorites_user_params)
 
@@ -39,7 +34,6 @@ class CocktailFavoritesUsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cocktail_favorites_users/1
   def update
     if @cocktail_favorites_user.update(cocktail_favorites_user_params)
       redirect_to @cocktail_favorites_user,
@@ -49,7 +43,6 @@ class CocktailFavoritesUsersController < ApplicationController
     end
   end
 
-  # DELETE /cocktail_favorites_users/1
   def destroy
     @cocktail_favorites_user.destroy
     message = "CocktailFavoritesUser was successfully deleted."
@@ -70,12 +63,10 @@ class CocktailFavoritesUsersController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_cocktail_favorites_user
     @cocktail_favorites_user = CocktailFavoritesUser.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def cocktail_favorites_user_params
     params.require(:cocktail_favorites_user).permit(:user_id, :cocktail_id)
   end

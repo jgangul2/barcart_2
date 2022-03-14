@@ -1,7 +1,6 @@
 class CocktailDetailsController < ApplicationController
   before_action :set_cocktail_detail, only: %i[show edit update destroy]
 
-  # GET /cocktail_details
   def index
     @q = CocktailDetail.ransack(params[:q])
     @cocktail_details = @q.result(distinct: true).includes(
@@ -9,22 +8,18 @@ class CocktailDetailsController < ApplicationController
     ).page(params[:page]).per(10)
   end
 
-  # GET /cocktail_details/1
   def show
     @user_customized_cocktail = UserCustomizedCocktail.new
     @cocktail_favorites_user = CocktailFavoritesUser.new
     @cocktail_recipes_standard = CocktailRecipesStandard.new
   end
 
-  # GET /cocktail_details/new
   def new
     @cocktail_detail = CocktailDetail.new
   end
 
-  # GET /cocktail_details/1/edit
   def edit; end
 
-  # POST /cocktail_details
   def create
     @cocktail_detail = CocktailDetail.new(cocktail_detail_params)
 
@@ -36,7 +31,6 @@ class CocktailDetailsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cocktail_details/1
   def update
     if @cocktail_detail.update(cocktail_detail_params)
       redirect_to @cocktail_detail,
@@ -46,7 +40,6 @@ class CocktailDetailsController < ApplicationController
     end
   end
 
-  # DELETE /cocktail_details/1
   def destroy
     @cocktail_detail.destroy
     redirect_to cocktail_details_url,
@@ -55,12 +48,10 @@ class CocktailDetailsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_cocktail_detail
     @cocktail_detail = CocktailDetail.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def cocktail_detail_params
     params.require(:cocktail_detail).permit(:name, :description, :image_url)
   end
