@@ -7,6 +7,8 @@ class StoreResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :store_inventories
+
   # Indirect associations
 
 end

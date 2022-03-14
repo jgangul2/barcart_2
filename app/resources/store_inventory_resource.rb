@@ -8,6 +8,8 @@ class StoreInventoryResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :store
+
   # Indirect associations
 
 end
