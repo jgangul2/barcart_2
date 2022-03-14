@@ -4,6 +4,8 @@ RSpec.describe SpiritsBrand, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:user_bar_carts) }
+
     it { should have_many(:store_inventories) }
 
     it { should belong_to(:spirit) }

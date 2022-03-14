@@ -4,6 +4,8 @@ RSpec.describe UserBarCart, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:spirit_brand) }
+
     it { should belong_to(:user) }
 
     end
