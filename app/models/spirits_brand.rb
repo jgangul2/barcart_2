@@ -1,6 +1,9 @@
 class SpiritsBrand < ApplicationRecord
   # Direct associations
 
+  belongs_to :spirit,
+             :class_name => "SpiritsDetail"
+
   # Indirect associations
 
   # Validations
