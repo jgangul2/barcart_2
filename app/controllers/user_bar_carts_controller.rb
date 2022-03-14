@@ -24,7 +24,12 @@ class UserBarCartsController < ApplicationController
     @user_bar_cart = UserBarCart.new(user_bar_cart_params)
 
     if @user_bar_cart.save
-      redirect_to @user_bar_cart, notice: 'User bar cart was successfully created.'
+      message = 'UserBarCart was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @user_bar_cart, notice: message
+      end
     else
       render :new
     end

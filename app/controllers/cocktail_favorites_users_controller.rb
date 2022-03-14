@@ -24,7 +24,12 @@ class CocktailFavoritesUsersController < ApplicationController
     @cocktail_favorites_user = CocktailFavoritesUser.new(cocktail_favorites_user_params)
 
     if @cocktail_favorites_user.save
-      redirect_to @cocktail_favorites_user, notice: 'Cocktail favorites user was successfully created.'
+      message = 'CocktailFavoritesUser was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @cocktail_favorites_user, notice: message
+      end
     else
       render :new
     end

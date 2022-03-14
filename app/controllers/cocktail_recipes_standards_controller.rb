@@ -24,7 +24,12 @@ class CocktailRecipesStandardsController < ApplicationController
     @cocktail_recipes_standard = CocktailRecipesStandard.new(cocktail_recipes_standard_params)
 
     if @cocktail_recipes_standard.save
-      redirect_to @cocktail_recipes_standard, notice: 'Cocktail recipes standard was successfully created.'
+      message = 'CocktailRecipesStandard was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @cocktail_recipes_standard, notice: message
+      end
     else
       render :new
     end

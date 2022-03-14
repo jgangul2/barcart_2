@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @user_customized_cocktail = UserCustomizedCocktail.new
+    @user_bar_cart = UserBarCart.new
+    @cocktail_favorites_user = CocktailFavoritesUser.new
   end
 
   # GET /users/new

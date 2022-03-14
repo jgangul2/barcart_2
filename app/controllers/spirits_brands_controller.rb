@@ -8,6 +8,9 @@ class SpiritsBrandsController < ApplicationController
 
   # GET /spirits_brands/1
   def show
+    @user_customized_cocktail = UserCustomizedCocktail.new
+    @user_bar_cart = UserBarCart.new
+    @store_inventory = StoreInventory.new
   end
 
   # GET /spirits_brands/new
@@ -24,7 +27,12 @@ class SpiritsBrandsController < ApplicationController
     @spirits_brand = SpiritsBrand.new(spirits_brand_params)
 
     if @spirits_brand.save
-      redirect_to @spirits_brand, notice: 'Spirits brand was successfully created.'
+      message = 'SpiritsBrand was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @spirits_brand, notice: message
+      end
     else
       render :new
     end

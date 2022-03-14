@@ -8,6 +8,8 @@ class SpiritsDetailsController < ApplicationController
 
   # GET /spirits_details/1
   def show
+    @spirits_brand = SpiritsBrand.new
+    @cocktail_recipes_standard = CocktailRecipesStandard.new
   end
 
   # GET /spirits_details/new

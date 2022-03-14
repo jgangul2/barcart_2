@@ -24,7 +24,12 @@ class UserCustomizedCocktailsController < ApplicationController
     @user_customized_cocktail = UserCustomizedCocktail.new(user_customized_cocktail_params)
 
     if @user_customized_cocktail.save
-      redirect_to @user_customized_cocktail, notice: 'User customized cocktail was successfully created.'
+      message = 'UserCustomizedCocktail was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @user_customized_cocktail, notice: message
+      end
     else
       render :new
     end

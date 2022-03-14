@@ -24,7 +24,12 @@ class StoreInventoriesController < ApplicationController
     @store_inventory = StoreInventory.new(store_inventory_params)
 
     if @store_inventory.save
-      redirect_to @store_inventory, notice: 'Store inventory was successfully created.'
+      message = 'StoreInventory was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @store_inventory, notice: message
+      end
     else
       render :new
     end

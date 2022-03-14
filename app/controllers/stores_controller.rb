@@ -8,6 +8,7 @@ class StoresController < ApplicationController
 
   # GET /stores/1
   def show
+    @store_inventory = StoreInventory.new
   end
 
   # GET /stores/new
