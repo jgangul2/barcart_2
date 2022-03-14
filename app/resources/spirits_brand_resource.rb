@@ -8,6 +8,9 @@ class SpiritsBrandResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :store_inventories,
+             foreign_key: :ingredient_id
+
   belongs_to :spirit,
              resource: SpiritsDetailResource
 

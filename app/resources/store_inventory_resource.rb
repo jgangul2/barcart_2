@@ -8,6 +8,9 @@ class StoreInventoryResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :ingredient,
+             resource: SpiritsBrandResource
+
   belongs_to :store
 
   # Indirect associations
