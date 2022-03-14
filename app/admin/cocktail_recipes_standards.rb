@@ -1,5 +1,7 @@
 ActiveAdmin.register CocktailRecipesStandard do
 
+ permit_params :cocktail_id, :ingredient_id, :quantity
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
