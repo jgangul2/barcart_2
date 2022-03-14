@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :user_bar_carts,
+             :dependent => :destroy
+
   has_many   :cocktail_favorites_users,
              :dependent => :destroy
 

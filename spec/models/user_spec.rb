@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:user_bar_carts) }
+
     it { should have_many(:cocktail_favorites_users) }
 
     end
