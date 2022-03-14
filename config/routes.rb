@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :store_inventories
   resources :stores
   resources :cocktail_favorites_users
   resources :cocktail_recipes_standards

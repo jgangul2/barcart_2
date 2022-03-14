@@ -1,0 +1,83 @@
+<% was_validated = store_inventory.errors.any? %>
+
+<%= form_with(model: store_inventory, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for store_id start -->
+  <div class="form-group">
+    <% store_class = "form-control" %>
+    <% store_was_invalid = store_inventory.errors.include?(:store) %>
+
+    <% if was_validated %>
+      <% if store_was_invalid %>
+        <% store_class << " is-invalid" %>
+      <% else %>
+        <% store_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :store_id %>
+    <!-- Input for store_id start -->
+    <%= f.number_field :store_id, class: store_class, placeholder: "Enter store" %>
+    <!-- Input for store_id end -->
+    <% if store_was_invalid %>
+      <% store_inventory.errors.full_messages_for(:store).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for store_id end -->
+  <!-- Label and input for price start -->
+  <div class="form-group">
+    <% price_class = "form-control" %>
+    <% price_was_invalid = store_inventory.errors.include?(:price) %>
+
+    <% if was_validated %>
+      <% if price_was_invalid %>
+        <% price_class << " is-invalid" %>
+      <% else %>
+        <% price_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :price %>
+    <!-- Input for price start -->
+    <%= f.number_field :price, class: price_class, placeholder: "Enter price" %>
+    <!-- Input for price end -->
+    <% if price_was_invalid %>
+      <% store_inventory.errors.full_messages_for(:price).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for price end -->
+  <!-- Label and input for ingredient_id start -->
+  <div class="form-group">
+    <% ingredient_class = "form-control" %>
+    <% ingredient_was_invalid = store_inventory.errors.include?(:ingredient) %>
+
+    <% if was_validated %>
+      <% if ingredient_was_invalid %>
+        <% ingredient_class << " is-invalid" %>
+      <% else %>
+        <% ingredient_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :ingredient_id %>
+    <!-- Input for ingredient_id start -->
+    <%= f.number_field :ingredient_id, class: ingredient_class, placeholder: "Enter ingredient" %>
+    <!-- Input for ingredient_id end -->
+    <% if ingredient_was_invalid %>
+      <% store_inventory.errors.full_messages_for(:ingredient).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for ingredient_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
