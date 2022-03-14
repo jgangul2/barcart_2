@@ -3,7 +3,7 @@ class UserBarCartsController < ApplicationController
 
   # GET /user_bar_carts
   def index
-    @user_bar_carts = UserBarCart.all
+    @user_bar_carts = UserBarCart.page(params[:page]).per(10)
   end
 
   # GET /user_bar_carts/1

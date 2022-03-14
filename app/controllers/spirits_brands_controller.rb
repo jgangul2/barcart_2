@@ -3,7 +3,7 @@ class SpiritsBrandsController < ApplicationController
 
   # GET /spirits_brands
   def index
-    @spirits_brands = SpiritsBrand.all
+    @spirits_brands = SpiritsBrand.page(params[:page]).per(10)
   end
 
   # GET /spirits_brands/1

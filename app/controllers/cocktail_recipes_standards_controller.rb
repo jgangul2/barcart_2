@@ -3,7 +3,7 @@ class CocktailRecipesStandardsController < ApplicationController
 
   # GET /cocktail_recipes_standards
   def index
-    @cocktail_recipes_standards = CocktailRecipesStandard.all
+    @cocktail_recipes_standards = CocktailRecipesStandard.page(params[:page]).per(10)
   end
 
   # GET /cocktail_recipes_standards/1

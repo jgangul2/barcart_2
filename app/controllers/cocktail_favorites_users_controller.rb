@@ -5,7 +5,7 @@ class CocktailFavoritesUsersController < ApplicationController
 
   # GET /cocktail_favorites_users
   def index
-    @cocktail_favorites_users = CocktailFavoritesUser.all
+    @cocktail_favorites_users = CocktailFavoritesUser.page(params[:page]).per(10)
   end
 
   # GET /cocktail_favorites_users/1

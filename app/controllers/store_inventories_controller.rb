@@ -3,7 +3,7 @@ class StoreInventoriesController < ApplicationController
 
   # GET /store_inventories
   def index
-    @store_inventories = StoreInventory.all
+    @store_inventories = StoreInventory.page(params[:page]).per(10)
   end
 
   # GET /store_inventories/1

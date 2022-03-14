@@ -3,7 +3,7 @@ class UserCustomizedCocktailsController < ApplicationController
 
   # GET /user_customized_cocktails
   def index
-    @user_customized_cocktails = UserCustomizedCocktail.all
+    @user_customized_cocktails = UserCustomizedCocktail.page(params[:page]).per(10)
   end
 
   # GET /user_customized_cocktails/1

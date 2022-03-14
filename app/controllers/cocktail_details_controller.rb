@@ -3,7 +3,7 @@ class CocktailDetailsController < ApplicationController
 
   # GET /cocktail_details
   def index
-    @cocktail_details = CocktailDetail.all
+    @cocktail_details = CocktailDetail.page(params[:page]).per(10)
   end
 
   # GET /cocktail_details/1
