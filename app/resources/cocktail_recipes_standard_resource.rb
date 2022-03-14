@@ -8,6 +8,9 @@ class CocktailRecipesStandardResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :ingredient,
+             resource: SpiritsDetailResource
+
   belongs_to :cocktail,
              resource: CocktailDetailResource
 
