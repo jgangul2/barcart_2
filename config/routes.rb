@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root :to => "cocktail_details#index"
   resources :user_customized_cocktails
   resources :user_bar_carts
