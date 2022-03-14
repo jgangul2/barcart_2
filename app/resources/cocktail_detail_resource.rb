@@ -8,6 +8,9 @@ class CocktailDetailResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :cocktail_favorites_users,
+             foreign_key: :cocktail_id
+
   has_many   :cocktail_recipes_standards,
              foreign_key: :cocktail_id
 
