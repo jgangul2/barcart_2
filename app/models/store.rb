@@ -6,6 +6,10 @@ class Store < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :brand_ingredients,
+             through: :store_inventories,
+             source: :ingredient
+
   # Validations
 
   # Scopes

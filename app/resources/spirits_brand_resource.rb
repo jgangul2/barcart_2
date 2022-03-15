@@ -21,4 +21,6 @@ class SpiritsBrandResource < ApplicationResource
              resource: SpiritsDetailResource
 
   # Indirect associations
+
+  many_to_many :stores
 end

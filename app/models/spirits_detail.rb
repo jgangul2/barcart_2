@@ -11,6 +11,10 @@ class SpiritsDetail < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :store_inventories,
+             through: :spirits_brands,
+             source: :store_inventories
+
   # Validations
 
   # Scopes

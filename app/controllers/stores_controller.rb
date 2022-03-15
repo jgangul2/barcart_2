@@ -3,7 +3,8 @@ class StoresController < ApplicationController
 
   def index
     @q = Store.ransack(params[:q])
-    @stores = @q.result(distinct: true).includes(:store_inventories).page(params[:page]).per(10)
+    @stores = @q.result(distinct: true).includes(:store_inventories,
+                                                 :brand_ingredients).page(params[:page]).per(10)
   end
 
   def show

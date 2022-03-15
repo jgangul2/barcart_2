@@ -4,7 +4,7 @@ class SpiritsDetailsController < ApplicationController
   def index
     @q = SpiritsDetail.ransack(params[:q])
     @spirits_details = @q.result(distinct: true).includes(
-      :cocktail_recipes_standards, :spirits_brands
+      :cocktail_recipes_standards, :spirits_brands, :store_inventories
     ).page(params[:page]).per(10)
   end
 
@@ -52,6 +52,6 @@ class SpiritsDetailsController < ApplicationController
   end
 
   def spirits_detail_params
-    params.require(:spirits_detail).permit(:name)
+    params.require(:spirits_detail).permit(:name, :description)
   end
 end

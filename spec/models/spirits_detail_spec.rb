@@ -8,6 +8,7 @@ RSpec.describe SpiritsDetail, type: :model do
   end
 
   describe "InDirect Associations" do
+    it { should have_many(:store_inventories) }
   end
 
   describe "Validations" do

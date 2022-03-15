@@ -10,4 +10,7 @@ class StoreResource < ApplicationResource
   has_many :store_inventories
 
   # Indirect associations
+
+  many_to_many :brand_ingredients,
+               resource: SpiritsBrandResource
 end
