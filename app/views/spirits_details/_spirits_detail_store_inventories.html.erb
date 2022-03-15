@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Store Inventories
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @spirits_detail.store_inventories.each do |store_inventory| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <a href="/store_inventories/<%= store_inventory.id %>">
+          <%= store_inventory %>
+        </a>
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

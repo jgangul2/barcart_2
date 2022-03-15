@@ -6,6 +6,7 @@ RSpec.describe Store, type: :model do
   end
 
   describe "InDirect Associations" do
+    it { should have_many(:brand_ingredients) }
   end
 
   describe "Validations" do

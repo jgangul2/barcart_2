@@ -4,7 +4,7 @@ class SpiritsBrandsController < ApplicationController
   def index
     @q = SpiritsBrand.ransack(params[:q])
     @spirits_brands = @q.result(distinct: true).includes(:spirit,
-                                                         :store_inventories, :user_bar_carts, :user_customized_cocktails).page(params[:page]).per(10)
+                                                         :store_inventories, :user_bar_carts, :user_customized_cocktails, :stores).page(params[:page]).per(10)
   end
 
   def show

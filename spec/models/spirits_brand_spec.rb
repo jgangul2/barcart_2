@@ -12,6 +12,7 @@ RSpec.describe SpiritsBrand, type: :model do
   end
 
   describe "InDirect Associations" do
+    it { should have_many(:stores) }
   end
 
   describe "Validations" do

@@ -18,11 +18,15 @@ class SpiritsBrand < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :stores,
+             through: :store_inventories,
+             source: :store
+
   # Validations
 
   # Scopes
 
   def to_s
-    spirit.to_s
+    name
   end
 end

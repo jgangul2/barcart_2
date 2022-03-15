@@ -4,7 +4,7 @@ class CocktailRecipesStandardResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :cocktail_id, :integer
   attribute :ingredient_id, :integer
-  attribute :quantity, :string
+  attribute :quantity, :float
 
   # Direct associations
 

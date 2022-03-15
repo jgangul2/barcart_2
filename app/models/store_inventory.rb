@@ -8,6 +8,10 @@ class StoreInventory < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :spirit,
+             through: :ingredient,
+             source: :spirit
+
   # Validations
 
   # Scopes

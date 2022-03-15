@@ -8,6 +8,7 @@ RSpec.describe StoreInventory, type: :model do
   end
 
   describe "InDirect Associations" do
+    it { should have_one(:spirit) }
   end
 
   describe "Validations" do

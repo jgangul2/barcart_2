@@ -4,7 +4,7 @@ class StoreInventoriesController < ApplicationController
   def index
     @q = StoreInventory.ransack(params[:q])
     @store_inventories = @q.result(distinct: true).includes(:store,
-                                                            :ingredient).page(params[:page]).per(10)
+                                                            :ingredient, :spirit).page(params[:page]).per(10)
   end
 
   def show; end

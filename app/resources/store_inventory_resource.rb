@@ -14,4 +14,13 @@ class StoreInventoryResource < ApplicationResource
   belongs_to :store
 
   # Indirect associations
+
+  has_one    :spirit,
+             resource: SpiritsDetailResource
+
+  filter :spirit_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:spirit).where(spirits_brands: { spirit_id: value })
+    end
+  end
 end
